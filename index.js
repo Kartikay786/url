@@ -13,4 +13,4 @@ app.use(express.json())
 app.use('/youtubeb',urlRouter)
 
 const Port = process.env.PORT || 9000;
-app.listen(Port,()=>{ console.log(`Server is listening on https://localhost:${Port}`)})
+app.listen(Port,()=>{ console.log(`Server is listening on http://localhost:${Port}`)})

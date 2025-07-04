@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema({
-    orginalUrl :{
+    orignalUrl :{
         type : String,
         required:true
     },

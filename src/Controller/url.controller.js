@@ -2,14 +2,14 @@ import { nanoid } from "nanoid";
 import Url from "../Models/url.model.js";
 
 const createShortUrl = async (req, res) => {
-    const { orginalUrl } = req.body;
+    const { orignalUrl } = req.body;
     const shortId = nanoid(6);
     const baseUrl = process.env.BASEURL;
 
     try {
         const newUrl = new Url({
             shortId,
-            orginalUrl,
+            orignalUrl,
             shortUrl: `${baseUrl}/youtubeb/${shortId}`
         })
 
@@ -27,7 +27,7 @@ const redirectUrl = async (req, res) => {
         const url = await Url.findOne({ shortId });
         if (!url) return res.status(400).json({ message: 'Url not found' });
 
-        res.redirect(url.orginalUrl);
+        res.redirect(url.orignalUrl);
     }
     catch (err) {
         res.status(500).json({ message: 'Server error' });
