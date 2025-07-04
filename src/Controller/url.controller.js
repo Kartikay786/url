@@ -17,7 +17,8 @@ const createShortUrl = async (req, res) => {
         res.status(200).json({ message: 'Url Generated', newUrl });
     }
     catch (err) {
-        res.status(500).json({ message: 'Server error' });
+        console.log(err)
+        res.status(500).json({ message: 'Server error',err });
     }
 }
 
@@ -30,7 +31,9 @@ const redirectUrl = async (req, res) => {
         res.redirect(url.orignalUrl);
     }
     catch (err) {
-        res.status(500).json({ message: 'Server error' });
+        
+        console.log(err)
+        res.status(500).json({ message: 'Server error',err });
     }
 }
 
