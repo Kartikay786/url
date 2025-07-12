@@ -37,4 +37,17 @@ const redirectUrl = async (req, res) => {
     }
 }
 
-export {createShortUrl,redirectUrl}
+const allUrl = async (req,res) => {
+    try{
+        const Urls = await Url.find();
+        console.log(Urls)
+        if(!Urls) return res.status(400).json({message:'No Url found.'})
+        return res.json(Urls);
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Server error',err });
+    }
+}
+
+export {createShortUrl,redirectUrl, allUrl}
